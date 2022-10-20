@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:forms_flutter/ui/input_decorations.dart';
 import 'package:forms_flutter/widgets/widgets.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -9,6 +10,7 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: AuthBackground(
         child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
           child: Column(
             children: [
               const SizedBox(
@@ -57,20 +59,42 @@ class _LoginForm extends StatelessWidget {
             TextFormField(
               autocorrect: false,
               keyboardType: TextInputType.emailAddress,
-              decoration: const InputDecoration(
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.deepPurple),
-                  ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.deepPurple, width: 2),
-                  ),
-                  hintText: 'Email',
-                  labelText: 'Correo Electrónico',
-                  labelStyle: TextStyle(color: Colors.grey),
-                  prefixIcon: Icon(
-                    Icons.alternate_email_sharp,
-                    color: Colors.deepPurple,
+              decoration: InputDecorations.authInputDecoration(
+                hintText: 'jhon@gmail.com',
+                labelText: 'Correo Electronico',
+                prefixIcon: Icons.alternate_email_rounded,
+              ),
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            TextFormField(
+              autocorrect: false,
+              obscureText: true,
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecorations.authInputDecoration(
+                hintText: '******',
+                labelText: 'Contraseña',
+                prefixIcon: Icons.lock_outline_rounded,
+              ),
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            MaterialButton(
+              disabledColor: Colors.grey,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              elevation: 0,
+              color: Colors.deepPurple,
+              child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 80, vertical: 15),
+                  child: Text(
+                    'Ingresar',
+                    style: TextStyle(color: Colors.white),
                   )),
+              onPressed: () {},
             )
           ],
         ),
