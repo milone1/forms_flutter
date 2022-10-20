@@ -11,11 +11,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Forms App',
-      initialRoute: 'home',
+      initialRoute: 'login',
       routes: {
         'home': (_) => const HomeScreen(),
         'login': (_) => const LoginScreen(),
       },
+      theme:
+          ThemeData.light().copyWith(scaffoldBackgroundColor: Colors.grey[300]),
     );
   }
 }
